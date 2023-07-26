@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Company</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Ajout de Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Ajout des icônes Ionic -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">
+        <img src="https://c8.alamy.com/compfr/pjdatr/lettre-initiale-kc-modele-logo-gris-fonce-couleur-design-rouge-pour-l-entreprise-et-l-identite-de-l-entreprise-pjdatr.jpg" alt="" width="100" height="50">
+        My Company
+    </a>
+    <ul class="navbar-nav">
+        <!-- Liens vers les différentes pages -->
+        <li><a th:href="@{/addEmployee}">Ajouter un employé</a></li>
+        <li><a th:href="@{/employeeTable}">Tableau des employés</a></li>
+    </ul>
+</div>
+
+<!-- Formulaire d'ajout d'employé -->
+<h2><ion-icon name="person-add-outline"></ion-icon> Ajouter un employé</h2>
+<form th:action="@{/addEmployee}" th:object="${newEmployee}" method="post" enctype="multipart/form-data" class="employee-form">
+    <!-- Informations personnelles -->
+    <fieldset>
+        <legend><ion-icon name="person-outline"></ion-icon> Informations personnelles</legend>
+        <label for="matricule">Matricule :</label>
+        <input type="text" id="matricule" th:field="*{matricule}" required><br>
+
+        <label for="firstName">Prénom :</label>
+        <input type="text" id="firstName" th:field="*{firstName}" required><br>
+
+        <label for="lastName">Nom :</label>
+        <input type="text" id="lastName" th:field="*{lastName}" required><br>
+
+        <label for="birthDate">Date de naissance :</label>
+        <input type="date" id="birthDate" th:field="*{birthDate}" required><br>
+
+        <label for="gender">Genre :</label>
+        <select id="gender" th:field="*{gender}">
+            <option value="Male">Homme</option>
+            <option value="Female">Femme</option>
+        </select><br>
+    </fieldset>
+
+    <!-- Coordonnées -->
+    <fieldset>
+        <legend><ion-icon name="call-outline"></ion-icon> Coordonnées</legend>
+        <label for="phones">Téléphones :</label>
+        <input type="text" id="phones" th:field="*{phones}" required><br>
+
+        <label for="address">Adresse :</label>
+        <input type="text" id="address" th:field="*{address}" required><br>
+
+        <label for="personalEmail">Email personnel :</label>
+        <input type="email" id="personalEmail" th:field="*{personalEmail}" required><br>
+
+        <label for="workEmail">Email professionnel :</label>
+        <input type="email" id="workEmail" th:field="*{workEmail}" required><br>
+    </fieldset>
+
+    <!-- Informations complémentaires -->
+    <fieldset>
+        <legend><ion-icon name="information-circle-outline"></ion-icon> Informations complémentaires</legend>
+        <!-- Ajoutez les autres champs ici -->
+        <label for="CINNumber">Numéro de CIN :</label>
+        <input type="text" id="CINNumber" th:field="*{CINNumber}" required><br>
+
+        <!-- Ajoutez d'autres champs avec des icônes Ionic ici -->
+
+        <label for="function"><ion-icon name="briefcase-outline"></ion-icon> Fonction :</label>
+        <input type="text" id="function" th:field="*{function}" required><br>
+
+        <label for="childrenCount"><ion-icon name="people-outline"></ion-icon> Nombre d'enfants :</label>
+        <input type="number" id="childrenCount" th:field="*{childrenCount}" required><br>
+
+        <label for="hireDate"><ion-icon name="calendar-outline"></ion-icon> Date d'embauche :</label>
+        <input type="date" id="hireDate" th:field="*{hireDate}" required><br>
+
+        <label for="departureDate"><ion-icon name="log-out-outline"></ion-icon> Date de départ :</label>
+        <input type="date" id="departureDate" th:field="*{departureDate}"><br>
+
+        <label for="socioProfessionalCategory"><ion-icon name="briefcase-outline"></ion-icon> Catégorie socio-professionnelle :</label>
+        <input type="text" id="socioProfessionalCategory" th:field="*{socioProfessionalCategory}" required><br>
+
+        <label for="CNAPSNumber"><ion-icon name="card-outline"></ion-icon> Numéro de CNAPS :</label>
+        <input type="text" id="CNAPSNumber" th:field="*{CNAPSNumber}" required><br>
+
+        <!-- Champ pour télécharger une image -->
+        <label for="imageFile"><ion-icon name="image-outline"></ion-icon> Image :</label>
+        <input type="file" id="imageFile" name="imageFile" accept="image/*" required><br>
+    </fieldset>
+
+    <button type="submit"><ion-icon name="add-outline"></ion-icon> Ajouter l'employé</button>
+</form>
+
+<!-- Formulaire pour enregistrer les informations de l'entreprise -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <a href="/" class="footer-logo-link">
+                <img src="https://c8.alamy.com/compfr/pjdatr/lettre-initiale-kc-modele-logo-gris-fonce-couleur-design-rouge-pour-l-entreprise-et-l-identite-de-l-entreprise-pjdatr.jpg" alt=""width="100" height="50">
+            </a>
+        </div>
+        <div class="footer-info">
+            <h4>Nom de l'entreprise</h4>
+            <p>Description de l'entreprise.</p>
+            <p>Adresse exacte de l'entreprise</p>
+            <p>Email de contact : contact@entreprise.com</p>
+            <p>Téléphone : +33 6 12 34 56 78</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 Votre entreprise. Tous droits réservés.</p>
+    </div>
+</footer>
+
+
+<!-- Formulaire pour modifier les informations de l'entreprise (masqué par défaut) -->
+<form id="editForm" th:action="@{/saveEntreprise}" th:object="${entreprise}" method="post" style="display: none;">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" th:field="*{nom}" required><br>
+
+    <label for="slogan">Slogan :</label>
+    <input type="text" id="slogan" th:field="*{slogan}" required><br>
+
+    <label for="adresse">Adresse :</label>
+    <input type="text" id="adresse" th:field="*{adresse}" required><br>
+
+    <label for="emailContact">Email de contact :</label>
+    <input type="email" id="emailContact" th:field="*{emailContact}" required><br>
+
+    <label for="phonesEntreprise">Téléphones :</label>
+    <input type="text" id="phonesEntreprise" th:field="*{phones}" required><br>
+
+    <label for="nif">NIF :</label>
+    <input type="text" id="nif" th:field="*{nif}" required><br>
+
+    <label for="stat">STAT :</label>
+    <input type="text" id="stat" th:field="*{stat}" required><br>
+
+    <label for="rcs">RCS :</label>
+    <input type="text" id="rcs" th:field="*{rcs}" required><br>
+
+    <button type="submit">Enregistrer</button>
+</form>
+
+<!-- Afficher le bouton "Modifier" seulement si le formulaire de modification est masqué -->
+<button id="editButton" onclick="showEditForm()">Modifier les informations</button>
+
+<!-- Script JavaScript pour afficher/masquer le formulaire de modification -->
+<script>
+    function showEditForm() {
+        var editButton = document.getElementById("editButton");
+        var editForm = document.getElementById("editForm");
+
+        // Masquer l'élément de description et le bouton "Modifier"
+        editButton.style.display = "none";
+
+        // Afficher le formulaire de modification
+        editForm.style.display = "block";
+    }
+</script>
+
+</body>
+</html>

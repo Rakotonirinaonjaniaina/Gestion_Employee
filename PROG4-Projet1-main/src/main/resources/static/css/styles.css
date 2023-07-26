@@ -1,0 +1,312 @@
+/* Couleurs principales du thème */
+:root {
+    --primary-color: #FF0000; /* Rouge */
+    --secondary-color: #f0f0f0; /* Gris clair */
+    --dark-color: #000000; /* Noir */
+}
+
+/* Réinitialisation du style par défaut */
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+/* Styles généraux pour le corps de la page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Google Sans', sans-serif, system-ui;
+    color: var(--dark-color);
+    background-color: #FFFFFF; /* Couleur d'arrière-plan blanc */
+}
+
+/* Styles pour la barre de navigation */
+.navbar {
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    background-color: var(--dark-color);
+    z-index: 100; /* Assure que le navbar reste au-dessus du contenu */
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li {
+    margin-left: 20px;
+}
+
+.navbar-nav li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav li a:hover {
+    color: var(--primary-color);
+}
+
+/* Styles pour le formulaire d'ajout d'employé */
+.employee-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+}
+
+.employee-form fieldset {
+    border: none;
+    margin-bottom: 20px;
+}
+
+.employee-form legend {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.employee-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.employee-form input,
+.employee-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+}
+
+.employee-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.employee-form button:hover {
+    background-color: #FF3333; /* Légère nuance de rouge au survol */
+}
+
+/* Styles pour le logo */
+.logo {
+    max-width: 200px;
+    margin-top: 10px;
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour les pages d'édition et de détails */
+.page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Styles spécifiques pour la page des détails de l'employé */
+.employee-details {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+}
+
+.employee-details h3 {
+    color: var(--primary-color);
+}
+
+.employee-details label {
+    font-weight: bold;
+}
+
+.employee-details .info {
+    margin-bottom: 10px;
+}
+
+.employee-details .info span {
+    margin-right: 10px;
+}
+
+.employee-details .info img {
+    max-width: 100px;
+    margin-top: 10px;
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Tableau des employés */
+.table-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.table {
+    border-spacing: 10px; /* Ajout d'un espace de 5px entre les cellules */
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border: 1px solid var(--dark-color);
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.table tr:nth-child(even) {
+    background-color: var(--secondary-color);
+}
+
+.table tr:nth-child(odd) {
+    background-color: var(--secondary-color);
+}
+
+/* Formulaire de filtrage des employés */
+.filter-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+}
+
+.filter-form label {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.filter-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+}
+
+.filter-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-form button:hover {
+    background-color: #FF3333; /* Légère nuance de rouge au survol */
+}
+
+/* Lien de téléchargement au format CSV */
+p a {
+    display: inline-block;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+p a:hover {
+    background-color: #FF3333; /* Légère nuance de rouge au survol */
+}
+
+/* Styles pour le footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo img {
+    max-width: 100px;
+    height: auto;
+}
+
+.footer-info {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-info h4 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 10px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+#editButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+

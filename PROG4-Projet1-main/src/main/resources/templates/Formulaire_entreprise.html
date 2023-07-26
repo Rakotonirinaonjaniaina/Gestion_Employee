@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'informations de l'entreprise</title>
+</head>
+<body>
+<h1>Formulaire d'informations de l'entreprise</h1>
+<form action="#" th:action="@{/saveEntrepriseInfo}" th:object="${entreprise}" method="post">
+    <label>Nom de l'entreprise:</label>
+    <input type="text" th:field="*{name}"/><br>
+
+    <label>Description de l'entreprise:</label>
+    <textarea th:field="*{description}"></textarea><br>
+
+    <label>Slogan:</label>
+    <input type="text" th:field="*{slogan}"/><br>
+
+    <label>Adresse exacte:</label>
+    <input type="text" th:field="*{address}"/><br>
+
+    <label>Email de contact:</label>
+    <input type="email" th:field="*{email}"/><br>
+
+    <label>Téléphones:</label>
+    <input type="text" th:field="*{phoneNumbers}"/><br>
+
+    <label>NIF:</label>
+    <input type="text" th:field="*{NIF}"/><br>
+
+    <label>STAT:</label>
+    <input type="text" th:field="*{STAT}"/><br>
+
+    <label>RCS:</label>
+    <input type="text" th:field="*{RCS}"/><br>
+
+    <label>URL du logo:</label>
+    <input type="text" th:field="*{logoUrl}"/><br>
+
+    <button type="submit">Enregistrer</button>
+</form>
+</body>
+</html>

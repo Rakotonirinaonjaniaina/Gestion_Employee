@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="navbar navbar-dark bg-dark">
+    <a href="/" class="navbar-brand">
+        <img src="https://c8.alamy.com/compfr/pjdatr/lettre-initiale-kc-modele-logo-gris-fonce-couleur-design-rouge-pour-l-entreprise-et-l-identite-de-l-entreprise-pjdatr.jpg" alt="Logo de l'entreprise" width="100" height="50">
+        My Company
+    </a>
+    <ul class="navbar-nav">
+        <li><a th:href="@{/}" class="active">Ajouter un employé</a></li>
+        <li><a th:href="@{/employeeTable}">Tableau des employés</a></li>
+    </ul>
+</div>
+
+<!-- Formulaire d'édition d'employé -->
+<div class="employee-form">
+    <h2>Edit Employee</h2>
+    <form th:action="@{/updateEmployee}" th:object="${employee}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}">
+
+        <!-- Informations personnelles -->
+        <fieldset>
+            <legend>Informations personnelles</legend>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" th:field="*{firstName}" required><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" th:field="*{lastName}" required><br>
+
+            <label for="birthDate">Birth Date:</label>
+            <input type="date" id="birthDate" th:field="*{birthDate}" required><br>
+
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="Male" th:checked="${employee.gender == 'Male'}">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" th:checked="${employee.gender == 'Female'}">
+            <label for="female">Female</label><br>
+        </fieldset>
+
+        <!-- Coordonnées -->
+        <fieldset>
+            <legend>Coordonnées</legend>
+            <label for="phones">Phones:</label>
+            <input type="text" id="phones" th:field="*{phones}" th:attr="multiple='multiple'"><br>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" th:field="*{address}"><br>
+
+            <label for="personalEmail">Personal Email:</label>
+            <input type="email" id="personalEmail" th:field="*{personalEmail}"><br>
+
+            <label for="workEmail">Work Email:</label>
+            <input type="email" id="workEmail" th:field="*{workEmail}"><br>
+        </fieldset>
+
+        <!-- Informations complémentaires -->
+        <fieldset>
+            <legend>Informations complémentaires</legend>
+            <label for="CINNumber">CIN Number:</label>
+            <input type="text" id="CINNumber" th:field="*{CINNumber}"><br>
+
+            <label for="CINDateOfDelivery">CIN Date of Delivery:</label>
+            <input type="date" id="CINDateOfDelivery" th:field="*{CINDateOfDelivery}"><br>
+
+            <label for="CINPlaceOfDelivery">CIN Place of Delivery:</label>
+            <input type="text" id="CINPlaceOfDelivery" th:field="*{CINPlaceOfDelivery}"><br>
+
+            <label for="function">Function:</label>
+            <input type="text" id="function" th:field="*{function}"><br>
+
+            <label for="childrenCount">Number of Children:</label>
+            <input type="number" id="childrenCount" th:field="*{childrenCount}"><br>
+
+            <label for="hireDate">Hire Date:</label>
+            <input type="date" id="hireDate" th:field="*{hireDate}"><br>
+
+            <label for="departureDate">Departure Date:</label>
+            <input type="date" id="departureDate" th:field="*{departureDate}"><br>
+
+            <label for="socioProfessionalCategory">Socio-Professional Category:</label>
+            <input type="text" id="socioProfessionalCategory" th:field="*{socioProfessionalCategory}"><br>
+
+            <label for="CNAPSNumber">CNAPS Number:</label>
+            <input type="text" id="CNAPSNumber" th:field="*{CNAPSNumber}"><br>
+
+            <!-- Champ pour télécharger une image -->
+            <label for="imageFile">Image:</label>
+            <input type="file" id="imageFile" name="imageFile" accept="image/*" required><br>
+        </fieldset>
+
+        <button type="submit">Save Changes</button>
+    </form>
+</div>
+
+<!-- Formulaire pour enregistrer les informations de l'entreprise -->
+<!-- Footer avec le lien de logo -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <a href="/" class="footer-logo-link">
+                <img src="https://c8.alamy.com/compfr/pjdatr/lettre-initiale-kc-modele-logo-gris-fonce-couleur-design-rouge-pour-l-entreprise-et-l-identite-de-l-entreprise-pjdatr.jpg" alt=""width="100" height="50">
+            </a>
+        </div>
+        <div class="footer-info">
+            <h4>Nom de l'entreprise</h4>
+            <p>Description de l'entreprise.</p>
+            <p>Adresse exacte de l'entreprise</p>
+            <p>Email de contact : contact@entreprise.com</p>
+            <p>Téléphone : +33 6 12 34 56 78</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 Votre entreprise. Tous droits réservés.</p>
+    </div>
+</footer>
+
+
+<!-- Formulaire pour modifier les informations de l'entreprise (masqué par défaut) -->
+<form id="editForm" th:action="@{/saveEntreprise}" th:object="${entreprise}" method="post" style="display: none;">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" th:field="*{nom}" required><br>
+
+    <label for="slogan">Slogan :</label>
+    <input type="text" id="slogan" th:field="*{slogan}" required><br>
+
+    <label for="adresse">Adresse :</label>
+    <input type="text" id="adresse" th:field="*{adresse}" required><br>
+
+    <label for="emailContact">Email de contact :</label>
+    <input type="email" id="emailContact" th:field="*{emailContact}" required><br>
+
+    <label for="phonesEntreprise">Téléphones :</label>
+    <input type="text" id="phonesEntreprise" th:field="*{phones}" required><br>
+
+    <label for="nif">NIF :</label>
+    <input type="text" id="nif" th:field="*{nif}" required><br>
+
+    <label for="stat">STAT :</label>
+    <input type="text" id="stat" th:field="*{stat}" required><br>
+
+    <label for="rcs">RCS :</label>
+    <input type="text" id="rcs" th:field="*{rcs}" required><br>
+
+    <button type="submit">Enregistrer</button>
+</form>
+
+<!-- Afficher le bouton "Modifier" seulement si le formulaire de modification est masqué -->
+<button id="editButton" onclick="showEditForm()">Modifier les informations</button>
+
+<!-- Script JavaScript pour afficher/masquer le formulaire de modification -->
+<script>
+    function showEditForm() {
+        var editButton = document.getElementById("editButton");
+        var editForm = document.getElementById("editForm");
+
+        // Masquer l'élément de description et le bouton "Modifier"
+        editButton.style.display = "none";
+
+        // Afficher le formulaire de modification
+        editForm.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
