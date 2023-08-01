@@ -13,14 +13,13 @@ public class AuthentificationController {
 
     private Utilisateur utilisateur = new Utilisateur("defaultUser", "defaultPassword");
 
-
     @GetMapping("/login")
     public String showLoginPage() {
         return "login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("username") String username,@RequestParam("password") String password, Model model) {
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password, Model model) {
         if (utilisateur.getUsername().equals(username) && utilisateur.getPassword().equals(password)) {
             return "redirect:/";
         } else {

@@ -43,18 +43,13 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
     }
 
-    // Méthode pour filtrer et trier les employés
-    // Méthode pour filtrer et trier les employés
-    // Méthode pour filtrer et trier les employés
     public List<Employee> filterEmployeesByAttributeAndValue(String attribute, String value) {
-        // Utiliser la spécification pour filtrer les employés en fonction de l'attribut et de la valeur
+
         Specification<Employee> spec = (root, query, builder) ->
                 builder.like(builder.lower(root.get(attribute)), "%" + value.toLowerCase() + "%");
 
-        // Définir le tri (dans cet exemple, tri par identifiant de manière ascendante)
         Sort sort = Sort.by(Sort.Direction.ASC, "id");
 
-        // Utiliser la méthode findAll avec la spécification et le tri pour obtenir les employés filtrés et triés
         return employeeRepository.findAll(spec, sort);
     }
 

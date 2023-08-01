@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findAll(Specification<Employee> spec, Sort sort);
-    // Vous pouvez ajouter des méthodes personnalisées pour les requêtes spécifiques ici si nécessaire
+
 }
