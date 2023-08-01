@@ -38,8 +38,10 @@ public class EntrepriseEmployeeController {
         List<Employee> employees = employeeService.getAllEmployees();
         model.addAttribute("employees", employees);
         model.addAttribute("newEmployee", new Employee());
+
         return "index";
     }
+
 
     @PostMapping("/saveEntreprise")
     public String saveEntreprise(@ModelAttribute("entreprise") Entreprise entreprise) {

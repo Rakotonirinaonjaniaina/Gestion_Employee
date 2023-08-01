@@ -26,8 +26,7 @@
 
 <!-- Formulaire d'ajout d'employé -->
 <h2><ion-icon name="person-add-outline"></ion-icon> Ajouter un employé</h2>
-<form th:action="@{/addEmployee}" th:object="${newEmployee}" method="post" enctype="multipart/form-data" class="employee-form">
-    <!-- Informations personnelles -->
+<form action="/addEmployee" th:object="${newEmployee}" method="post" enctype="multipart/form-data" class="employee-form">       <!-- Informations personnelles -->
     <fieldset>
         <legend><ion-icon name="person-outline"></ion-icon> Informations personnelles</legend>
         <label for="matricule">Matricule :</label>
